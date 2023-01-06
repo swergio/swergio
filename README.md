@@ -52,7 +52,7 @@ pip install swergio
 For the latest version from github we can use:
 
 ```
-pip install swergio !!!!!!!
+pip install git+https://github.com/swergio/swergio.git
 ```
 
 If we want to install swergio including the toolbox package with useful functionalities we can do this from Pypi using:
