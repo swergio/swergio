@@ -1,9 +1,7 @@
 import socket
 import json
-import numpy as np
 import uuid
 import copy
-import sys
 import inspect
 from .messageType import MESSAGE_TYPE
 

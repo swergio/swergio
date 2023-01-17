@@ -1,44 +1,53 @@
 # Swergio
 
-Python package to enable and simplify communication between independent ML components via WebSocket.
+Python package to facilitate communication between independent ML components via WebSocket.
 
 Full documentation for the swergio project can be found at https://swergio.github.io.
 
 ## Motivation
 
-We are all aware that every machine learning and data science model is just a part of a whole process, the price prediction model, which is later used to control the buying of raw materials, or the customer churn model, which leads to different actions towards customers. Our models are using prepared data and the predictions are consumed by following business processes or even other models, which can make the end-to-end process quite large and complex. 
+Machine learning and data science models are just one component of a larger process. 
+For example, a price prediction model may be used to control the purchasing of raw materials, 
+and a customer churn model may influence the way a company interacts with its customers. 
+These models rely on pre-existing data and their predictions are used in various business processes and other models, 
+making the overall process complex.
 
-In general, we’re trying to reduce such complexity by focusing only on the model part. We will use prepared training data and optimize our model to fit an intermediate or approximate goal, e.g., forecast error or accuracy.
+To simplify this complexity, our focus is on the model itself. 
+We use pre-existing training data and optimize our model to meet intermediate goals such as forecast error or accuracy.
+
 
 ![](imgs/train.png)
 
-For model inference we usually integrate the trained model into a given process, receiving live data for the model and sending the model prediction further down the process.
+In practice, the trained model is integrated into an existing process, 
+where it receives live data and sends its predictions to the next step in the process.
 
 ![](imgs/inference.png)
 
-Also, this approach simplifies the complexity of our data science projects and is often good enough to reach useful results, but it still has a few challenges we need to overcome:
+While simplifying the complexity of data science projects can yield useful results, there are still several challenges to overcome. 
 
-- What is the appropriate goal we should aim for? E.g., is model accuracy the best measure for the overall process outcome?
-- How to incorporate live feedback into the process and how to adjust the model based on live feedback?
-- In what way can we reuse learned models to optimize and control the input parameters of the process?
-- How to effectively monitor the model’s performance?
+- Determining the appropriate goal for the model, e.g. whether model accuracy is the best measure for overall process outcome.
+- Incorporating live feedback into the process and adjusting the model accordingly.
+- Reusing learned models to optimize and control the input parameters of the process.
+- Effectively monitoring the model's performance.
 
-The challenges are mostly tackled by adding additional complexity to our process e.g., entirely separate components and code to handle feedback, etc. 
+To address these challenges, we may add additional complexity to our process, such as separate components and code to handle feedback. 
 
-A more straightforward approach is to enable a direct feedback mechanism into our forward process, that allows our models and components to get more information on how well their performance is down the line. 
+A more effective approach is to incorporate a direct feedback mechanism into our process, allowing our models and components to receive real-time information on their performance.
+
 
 ![](imgs/swergio.png)
 
-Such a mechanism allows us to be used in several settings and scenarios:
+A direct feedback mechanism allows for a wide range of applications, such as:
 
-- Train our model directly based on a goal down the process (e.g., differentiable programming Trebuchet example) 
-- Collect live reward feedback from an environment to train an RL model (RL example)
-- Gather live human feedback to label uncertain data in an active learning approach (Music Generator example)
-- Optimize the input of our process using gradient-based optimization technics (control problems)  
+- Training a model based on a goal further down the process (e.g. using differentiable programming in a Trebuchet example)
+- Collecting live reward feedback from an environment to train a reinforcement learning model (RL example)
+- Gathering live human feedback to label uncertain data in an active learning approach (Music Generator example)
+- Optimizing the input of our process using gradient-based optimization techniques (control problems)
 
-The swergio package helps us to implement and enable forward and backward communication between independent components.
+The swergio package facilitates the implementation of forward and backward communication between independent components. 
 
-To ensure the independence between the components and not require that all components are aware of each other, communication is implemented via Web Sockets and each component is only aware of certain communication rooms. The components can send and handle incoming messages. 
+To maintain independence between components and avoid the need for all components to be aware of each other, communication is implemented through Web Sockets, and each component is only aware of specific communication rooms. 
+Components can send and handle incoming messages.
 
 
 ## How to install

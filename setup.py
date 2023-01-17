@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="swergio",
-    version="0.0.1",
+    version="0.0.2",
     author="Ishmagurca",
     # author_email="author@example.com",
     description="Swergio Package",
